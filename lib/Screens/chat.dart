@@ -20,7 +20,40 @@ class _ChatState extends State<Chat> {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 25),
-            child: Text("Todays news",
+            child: Text("Latest Government Info",
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+          ),
+          Container(
+            height: 150,
+            child: ListView(
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              children: [
+                NewsTile(
+                  governmentInfo: false,
+                ),
+                NewsTile(
+                  governmentInfo: false,
+                ),
+                NewsTile(
+                  governmentInfo: false,
+                ),
+                NewsTile(
+                  governmentInfo: false,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Divider(
+            color: Colors.grey,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 25),
+            child: Text("Todays News",
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
           ),
           Container(
