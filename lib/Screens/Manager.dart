@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:psg_hackathon_farmers/Screens/Technology.dart';
 import 'package:psg_hackathon_farmers/Screens/chat.dart';
 import 'package:psg_hackathon_farmers/Screens/interact.dart';
 
@@ -14,7 +15,7 @@ class Manager extends StatefulWidget {
 }
 
 class _ManagerState extends State<Manager> {
-  final List<Widget> pages = [Chat(), Interact()];
+  final List<Widget> pages = [Chat(), TechnologyScreen(), Interact()];
   int index = 0;
 
   void change(int ind) {
@@ -28,7 +29,11 @@ class _ManagerState extends State<Manager> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 63, 111, 65),
-        title: Text(index == 0 ? "Home" : "Farmers in ${widget.region}"),
+        title: Text(index == 0
+            ? "Home"
+            : index == 2
+                ? "Farmers in ${widget.region}"
+                : "Agriculture 2.0"),
         centerTitle: false,
         leading: const Icon(Icons.emoji_nature_sharp),
         actions: [
@@ -36,6 +41,13 @@ class _ManagerState extends State<Manager> {
               onPressed: () {},
               icon: Icon(
                 Icons.camera_alt,
+                size: 30,
+              )),
+          IconButton(
+              tooltip: "Talk to a specialist",
+              onPressed: () {},
+              icon: Icon(
+                Icons.phone,
                 size: 30,
               ))
         ],
@@ -45,6 +57,10 @@ class _ManagerState extends State<Manager> {
         BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "Home",
+            backgroundColor: Color.fromARGB(255, 45, 152, 61)),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "Tech",
             backgroundColor: Color.fromARGB(255, 45, 152, 61)),
         BottomNavigationBarItem(
             icon: Icon(Icons.people),
